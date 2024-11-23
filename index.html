@@ -98,7 +98,7 @@
 </head>
 <body>
     <header>
-        <h1>Interactive Code Playgrounds (ICP)</h1>
+        <h1>Interactive Code Playgrounds (ICPs)</h1>
         <p>A standardized and accessible slideshow system with integrated code editors</p>
     </header>
     <nav>
@@ -112,7 +112,7 @@
     <main class="container">
         <section id="features" class="features">
             <h2>Features</h2>
-            <p>The Interactive Code Playgrounds (ICP) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICP are:</p>
+            <p>The Interactive Code Playgrounds (ICPs) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICPs are:</p>
             <ul>
                 <li>In-browser, standardized and platform independent environment requiring no additional downloads, accessible on any device with an internet browser.</li>
                 <li>Familiar slideshow interface for seamless integration into lectures.</li>
@@ -124,14 +124,14 @@
         </section>
         <section id="architecture" class="architecture">
             <h2>Architecture</h2>
-            <img src="./assets/images/icp_architecture.png" alt="ICP Architecture" style="max-width: 30%; height: auto;">
-            <p>The figure above gives an idea of the architecture of ICP. The Slides Layer contains <a href="https://revealjs.com/" target="_blank">Reveal.js</a> (the presentation framework) and <a href="https://codemirror.net/" target="_blank">CodeMirror</a> (the code editors). In this layer the user can view the slides and write code. Once the code is executed, it is taken as a string and passed to the next layer. Here there are all the various compilers and interpreters which are needed to convert the string of code into WebAssembly (WASM), which can then be directly executed by the browser.</p>
-            <p>Since one of the main objectives of ICP is to be as inclusive as possible and work on as many devices as possible, the user (or who distirbutes the slides to the final users) can chose what compilers/interpreters to put into the second layer thanks to its modular structure, allowing to reduce both the data storage used by the slides and the data traffic needed to reproduce the slides (if they are used online).</p>
+            <img src="./assets/images/icp_architecture.png" alt="ICPs Architecture" style="max-width: 30%; height: auto;">
+            <p>The figure above gives an idea of the architecture of ICPs. The Slides Layer contains <a href="https://revealjs.com/" target="_blank">Reveal.js</a> (the presentation framework) and <a href="https://codemirror.net/" target="_blank">CodeMirror</a> (the code editors). In this layer the user can view the slides and write code. Once the code is executed, it is taken as a string and passed to the next layer. Here there are all the various compilers and interpreters which are needed to convert the string of code into WebAssembly (WASM), which can then be directly executed by the browser.</p>
+            <p>Since one of the main objectives of ICPs is to be as inclusive as possible and work on as many devices as possible, the user (or who distributes the slides to the final users) can choose what compilers/interpreters to put into the second layer thanks to its modular structure, allowing to reduce both the data storage used by the slides and the data traffic needed to reproduce the slides (if they are used online).</p>
             <p>Learn more in <a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca De Menego's thesis</a> or these <a href="https://critlab.eu/notebooks/icp.html" target="_blank">in-depth notes</a>.</p>
         </section>
         <section id="demo" class="demo">
             <h2>Demo</h2>
-            <p>The compilers/transpilers used to convert the various strings of code into WASM require ICP slides to be hosted in order for them to be executed. There are several ways to do so, but here in the Demo section there are the two easiest methods for the final user:</p>
+            <p>The compilers/transpilers used to convert the various strings of code into WASM require ICPs slides to be hosted in order for them to be executed. There are several ways to do so, but here in the Demo section there are the two easiest methods for the final user:</p>
             <ul>
                 <li>
                     <p>The slides are hosted on the internet and accessed through a link, requiring an internet connection to import all its dependencies</p>
@@ -145,12 +145,12 @@
         </section>
         <section id="source-code" class="source-code">
             <h2>Source Code</h2>
-            <p>ICP is structured into several repositories based on its components:</p>
+            <p>The ICPs are structured into several repositories based on its components:</p>
             <ul>
-                <li><a href="https://github.com/lucademenego99/icp-bundle" target="_blank">ICP Bundle</a> - plugin for Reveal.js</li>
-                <li><a href="https://github.com/lucademenego99/icp-editor" target="_blank">ICP Editor</a> - offline web app to create ICP decks</li>
-                <li><a href="https://github.com/lucademenego99/icp-slides" target="_blank">ICP Slides</a> - sample slides</li>
-                <li><a href="https://github.com/Iron16Bit/icp-app" target="_blank">ICP App</a> - Android app for slides on mobile</li>
+                <li><a href="https://github.com/lucademenego99/icp-bundle" target="_blank">ICPs Bundle</a> - plugin for Reveal.js</li>
+                <li><a href="https://github.com/lucademenego99/icp-editor" target="_blank">ICPs Editor</a> - offline web app to create ICPs decks</li>
+                <li><a href="https://github.com/lucademenego99/icp-slides" target="_blank">ICPs Slides</a> - sample slides</li>
+                <li><a href="https://github.com/Iron16Bit/icp-app" target="_blank">ICPs App</a> - Android app for slides on mobile</li>
             </ul>
         </section>
         <section id="publications" class="publications">
