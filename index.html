@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Code Playgrounds (ICP)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background: #444;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .features, .architecture, .source-code, .publications, .contributors {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #333;
+        }
+        .cta {
+            background: #f4f4f4;
+            padding: 2rem;
+            text-align: center;
+        }
+        .cta a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+        }
+        .cta a:hover {
+            background: #555;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #444;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background-color: #444;
+            border-color: #555;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .download-btn:active {
+            background-color: #555;
+            border-color: #666;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        function confirmDownload() {
+            return confirm("You are going to download 42MB. Do you confirm?");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Interactive Code Playgrounds (ICP)</h1>
+        <p>A standardized and accessible slideshow system with integrated code editors</p>
+    </header>
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#demo">Demo</a>
+        <a href="#source-code">Source Code</a>
+        <a href="#publications">Publications</a>
+        <a href="#contributors">Contributors</a>
+    </nav>
+    <main class="container">
+        <section id="features" class="features">
+            <h2>Features</h2>
+            <p>The Interactive Code Playgrounds (ICP) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICP are:</p>
+            <ul>
+                <li>In-browser environment requiring no downloads, accessible on any device with an internet browser.</li>
+                <li>Familiar slideshow interface for seamless integration into lectures.</li>
+                <li>Offline functionality for inclusivity.</li>
+                <li>Support for multiple programming languages: JavaScript, TypeScript, Python, Java, SQL, Processing, Standard ML, C/C++.</li>
+            </ul>
+            <p>This is a concept for a web technology designed to treat offline students as first-class citizens (somewhat oximorically). The development cycle of ICPs requested frequent testing on a 15-years-old laptop as part of its QA.</p>
+            <p>We like to think of ICPs as an exercise in radical, but not disruptive, innovation. They enable many new forms of interaction and teaching, while not mandating the teachers and students who use them to change any of their habits.</p>
+        </section>
+        <section id="architecture" class="architecture">
+            <h2>Architecture</h2>
+            <img src="./assets/images/icp_architecture.png" alt="ICP Architecture" style="max-width: 30%; height: auto;">
+            <p>The figure above gives an idea of the architecture of ICP. The Slides Layer contains <a href="https://revealjs.com/" target="_blank">Reveal.js</a> (the presentation framework) and <a href="https://codemirror.net/" target="_blank">CodeMirror</a> (the code editors). In this layer the user can view the slides and write code. Once the code is executed, it is taken as a string and passed to the next layer. Here there are all the various compilers and interpreters which are needed to convert the string of code into WebAssembly (WASM), which can then be directly executed by the browser.</p>
+            <p>Since one of the main objectives of ICP is to be as inclusive as possible and work on as many devices as possible, the user (or who distirbutes the slides to the final users) can chose what compilers/interpreters to put into the second layer thanks to its modular structure, allowing to reduce both the data storage used by the slides and the data traffic needed to reproduce the slides (if they are used online).</p>
+            <p>Learn more in <a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca De Menego's thesis</a> or these <a href="https://critlab.eu/notebooks/icp.html" target="_blank">in-depth notes</a>.</p>
+        </section>
+        <section id="demo" class="demo">
+            <h2>Demo</h2>
+            <p>The compilers/transpilers used to convert the various strings of code into WASM require ICP slides to be hosted in order for them to be executed. There are several ways to do so, but here in the Demo section there are the two easiest methods for the final user:</p>
+            <ul>
+                <li>
+                    <p>The slides are hosted on the internet and accessed through a link, requiring an internet connection to import all its dependencies</p>
+                    <iframe id="load_slide" width="768" height="432" marginheight="0" marginwidth="0" src="./assets/load.html"></iframe>
+                </li>
+                <li>
+                    <p> The slides are exported as a <a href="https://redbean.dev/">redbean</a> file, a single, platform independent, executable file that takes care of both containing the slides and its dependencies and locally hosting it, allowing to access them offline by simply clicking the file</p>
+                    <a style="margin-left: 2vw;" href="./assets/redbean_ICP_demo.com" class="download-btn" onclick="return confirmDownload()">Download</a>
+                </li>
+            </ul>
+        </section>
+        <section id="source-code" class="source-code">
+            <h2>Source Code</h2>
+            <ul>
+                <li><a href="https://github.com/lucademenego99/icp-bundle" target="_blank">ICP Bundle</a> - plugin for Reveal.js</li>
+                <li><a href="https://github.com/lucademenego99/icp-editor" target="_blank">ICP Editor</a> - offline web app to create ICP decks</li>
+                <li><a href="https://github.com/lucademenego99/icp-slides" target="_blank">ICP Slides</a> - sample slides</li>
+                <li><a href="https://github.com/Iron16Bit/icp-app" target="_blank">ICP App</a> - Android app for slides on mobile</li>
+            </ul>
+        </section>
+        <section id="publications" class="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li><a href="https://slides.com/lorenzo_angeli/p2210-icp-openu" target="_blank">Prototype presentation at OpenU closing Conference, Paris, 2022</a></li>
+                <li><a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca's Thesis</a></li>
+            </ul>
+        </section>
+        <section id="contributors" class="contributors">
+            <h2>Contributors</h2>
+            <ul>
+                <li><a href="https://critlab.eu/Staff/lorenzo-angeli" target="_blank">Lorenzo Angeli</a></li>
+                <li><a href="https://critlab.eu/en/Students/Former/2023/luca-de-menego" target="_blank">Luca De Menego</a></li>
+                <li><a href="https://github.com/DavidLeoni/" target="_blank">David Leoni</a></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

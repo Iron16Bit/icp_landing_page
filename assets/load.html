@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Button Page</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #222323;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        iframe {
+            margin: 0;
+            padding: 0;
+            display: block; 
+            width: 100%; 
+            height: 100%;
+            border: none; 
+            overflow-y: auto; 
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button id="load">LOAD</button>
+    <!-- <iframe id="load_slide" style="height: max-content; width: max-content; visibility: hidden;"></iframe> -->
+</body>
+    <script>
+        // var iframe = document.getElementById('load_slide');
+        document.getElementById('load').onclick = function() {
+            if (confirm("You are going to import up to 110MB to reproduce this demo. Do you confirm?") == true) {
+                document.getElementById('load').style.visibility="hidden"
+                var iframe = document.createElement('iframe');
+                iframe.src = './slides/demo.html';
+                document.body.appendChild(iframe);
+                document.getElementById('load').remove();
+            }
+        }
+    </script>
+</html>
