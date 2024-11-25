@@ -103,6 +103,7 @@
     </header>
     <nav>
         <a href="#features">Features</a>
+        <a href="#why">Why ICPs?</a>
         <a href="#architecture">Architecture</a>
         <a href="#demo">Demo</a>
         <a href="#source-code">Source Code</a>
@@ -113,14 +114,23 @@
         <section id="features" class="features">
             <h2>Features</h2>
             <p>The Interactive Code Playgrounds (ICPs) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICPs are:</p>
-            <ul>
-                <li>In-browser, standardized and platform independent environment requiring no additional downloads, accessible on any device with an internet browser.</li>
-                <li>Familiar slideshow interface for seamless integration into lectures.</li>
-                <li>Works without any internet connection.</li>
+            <ol>
+                <li>In-browser, standardized and platform independent environment requiring no additional downloads, accessible on any device with an internet browser;</li>
+                <li>Familiar slideshow interface for seamless integration into lectures;</li>
+                <li>Works without any internet connection;</li>
                 <li>Support for multiple programming languages: JavaScript, TypeScript, Python, Java, SQL, Processing, Standard ML, C/C++.</li>
-            </ul>
+            </ol>
             <p>This is a concept for a web technology designed to treat offline students as first-class citizens (somewhat oximorically). The development cycle of ICPs requested frequent testing on a 15-years-old laptop as part of its QA.</p>
             <p>We like to think of ICPs as an exercise in radical, but not disruptive, innovation. They enable many new forms of interaction and teaching, while not mandating the teachers and students who use them to change any of their habits.</p>
+        </section>
+        <section id="why" class="why">
+            <h2>Why ICPs?</h2>
+            <p>Lecturing remains a common teaching method in university programming courses. In programming lectures, teachers often use slideshows that include code snippets. Students, in turn, need to transfer the code to a development environment before executing it. The different students in a classroom, however, may have different development environments, creating issues in managing the class and assisting students in troubleshooting.</p>
+            <p>The ICPs are a technology that tries to solve some of these challenges while minimising the disruption to the traditional programming lecture’s structure. The goal is to try to mitigate two key issues encountered in beginner programming lectures at university level by:</p>
+            <ol>
+                <li>Providing an uniform development environment for students and teachers to play with the execution of code snippets;</li>
+                <li>Reducing the needed steps that students and teachers need to perform to set up a development environment, or to execute code snippets</li>
+            </ol> 
         </section>
         <section id="architecture" class="architecture">
             <h2>Architecture</h2>
@@ -134,7 +144,7 @@
             <p>The compilers/transpilers used to convert the various strings of code into WASM require ICPs slides to be hosted in order for them to be executed. There are several ways to do so, but here in the Demo section there are the two easiest methods for the final user:</p>
             <ul>
                 <li>
-                    <p>The slides are hosted on the internet and accessed through a link, requiring an internet connection to import all its dependencies</p>
+                    <p>The slides are hosted on the internet, requiring an internet connection to import all its dependencies</p>
                     <iframe id="load_slide" width="768" height="432" marginheight="0" marginwidth="0" src="./assets/load.html"></iframe>
                 </li>
                 <li>
