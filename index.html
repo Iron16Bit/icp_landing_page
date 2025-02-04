@@ -91,8 +91,12 @@
     </style>
 
     <script>
-        function confirmDownload() {
-            return confirm("You are going to download 42MB. Do you confirm?");
+        function confirmDownload(file) {
+            if (file == "demo") {
+                return confirm("You are going to download 42 MB. Do you confirm?");
+            } else if (file == "editor") {
+                return confirm("You are going to download 83 MB. Do you confirm?");
+            }
         }
     </script>
 </head>
@@ -102,15 +106,33 @@
         <p>A standardized and accessible slideshow system with integrated code editors</p>
     </header>
     <nav>
+        <a href="#demo">Demo</a>
         <a href="#features">Features</a>
         <a href="#why">Why ICPs?</a>
         <a href="#architecture">Architecture</a>
-        <a href="#demo">Demo</a>
+        <a href="#editor">Editor</a>
         <a href="#source-code">Source Code</a>
         <a href="#publications">Publications</a>
         <a href="#contributors">Contributors</a>
     </nav>
     <main class="container">
+        <section id="demo" class="demo">
+            <h2>Demo</h2>
+            <p>A DEMO set of ICPs slide decks is available here. These slide decks can be accessed in several ways, such as:</p>
+            <ul>
+                <li>
+                    <p>The slides are hosted on the internet, requiring an internet connection to import all its dependencies;</p>
+                    <p>These slides have been preloaded with the support for Javascript language for the sake of rapidity. If you are interested in trying other langauges, import them when prompted to do so.</p>
+                    <div style="display: flex; justify-content: center;">
+                        <iframe id="load_slide" width="1440vh" height="810vw" marginheight="0" marginwidth="0" src="./assets/load.html"></iframe>
+                    </div>
+                </li>
+                <li>
+                    <p> The slides are exported as a <a href="https://redbean.dev/">redbean</a> file, a single, platform independent, executable file that takes care of both containing the slides and its dependencies and locally hosting it, allowing to access them offline by simply executing the file.</p>
+                    <a style="margin-left: 2vw;" href="./assets/redbean_ICP_demo.com" class="download-btn" onclick="return confirmDownload('demo')">Download</a>
+                </li>
+            </ul>
+        </section>
         <section id="features" class="features">
             <h2>Features</h2>
             <p>The Interactive Code Playgrounds (ICPs) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICPs are:</p>
@@ -139,17 +161,16 @@
             <p>Since one of the main objectives of ICPs is to be as inclusive as possible and work on as many devices as possible, the user (or who distributes the slides to the final users) can choose what compilers/interpreters to put into the second layer thanks to its modular structure, allowing to reduce both the data storage used by the slides and the data traffic needed to reproduce the slides (if they are used online).</p>
             <p>Learn more in <a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca De Menego's thesis</a> or these <a href="https://critlab.eu/notebooks/icp.html" target="_blank">in-depth notes</a>.</p>
         </section>
-        <section id="demo" class="demo">
-            <h2>Demo</h2>
-            <p>The compilers/transpilers used to convert the various strings of code into WASM require ICPs slides to be hosted in order for them to be executed. There are several ways to do so, but here in the Demo section there are the two easiest methods for the final user:</p>
+        <section id="editor" class="editor">
+            <h2>Editor</h2>
+            <p>ICPs slide decks can easily be created using the dedicated editor.</p>
             <ul>
                 <li>
-                    <p>The slides are hosted on the internet, requiring an internet connection to import all its dependencies</p>
-                    <iframe id="load_slide" width="768" height="432" marginheight="0" marginwidth="0" src="./assets/load.html"></iframe>
+                    <p>You can access the editor on the internet at its dedicated page: <a href="./assets/editor/index.html" target="_blank">Editor</a></p>
                 </li>
                 <li>
-                    <p> The slides are exported as a <a href="https://redbean.dev/">redbean</a> file, a single, platform independent, executable file that takes care of both containing the slides and its dependencies and locally hosting it, allowing to access them offline by simply clicking the file</p>
-                    <a style="margin-left: 2vw;" href="./assets/redbean_ICP_demo.com" class="download-btn" onclick="return confirmDownload()">Download</a>
+                    <p>Or you can download a redbean file containing the editor</p>
+                    <a style="margin-left: 2vw;" href="./assets/editor.com" class="download-btn" onclick="return confirmDownload('editor')">Download</a>
                 </li>
             </ul>
         </section>
@@ -166,8 +187,11 @@
         <section id="publications" class="publications">
             <h2>Publications</h2>
             <ul>
-                <li><a href="https://slides.com/lorenzo_angeli/p2210-icp-openu" target="_blank">Prototype presentation at OpenU closing Conference, Paris, 2022</a></li>
                 <li><a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca's Thesis</a></li>
+                <li><a href="https://critlab.eu/en/Publications/Theses/2024/icp-app" target="_blank">Salvatore's Thesis</a></li>
+                <li><a href="https://slides.com/lorenzo_angeli/p2210-icp-openu" target="_blank">Prototype presentation at OpenU closing Conference, Paris, 2022</a></li>
+                <li><a href="https://critlab.eu/en/Publications/Papers/2024/icp-demo" target="_blank">Demo of ICPs at SIGCSE 2024</a></li>
+                <li><a href="https://critlab.eu/en/Publications/Papers/2025/icp-field-test-sigcse" target="_blank">Field test of ICPs</a></li>
             </ul>
         </section>
         <section id="contributors" class="contributors">
@@ -176,6 +200,7 @@
                 <li><a href="https://critlab.eu/Staff/lorenzo-angeli" target="_blank">Lorenzo Angeli</a></li>
                 <li><a href="https://critlab.eu/en/Students/Former/2023/luca-de-menego" target="_blank">Luca De Menego</a></li>
                 <li><a href="https://github.com/DavidLeoni/" target="_blank">David Leoni</a></li>
+                <li><a href="https://critlab.eu/en/Students/salvatore-gilles-cassara" target="_blank">Salvatore Gilles Cassarà</a></li>
             </ul>
         </section>
     </main>
