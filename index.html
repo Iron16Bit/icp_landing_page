@@ -98,6 +98,12 @@
                 return confirm("You are going to download 83 MB. Do you confirm?");
             }
         }
+
+        function confirmOpen(event) {
+            if (!confirm("You are going to import up to 125 MB. Do you confirm?")) {
+            event.preventDefault(); // Prevent the link from opening
+            }
+        }
     </script>
 </head>
 <body>
@@ -168,7 +174,10 @@
             <p>ICPs slide decks can easily be created using the dedicated editor.</p>
             <ul>
                 <li>
-                    <p>You can access the editor on the internet at its dedicated page: <a href="./assets/editor/index.html" target="_blank">Editor</a></p>
+                    <p>
+                        You can access the editor on the internet at its dedicated page:
+                        <a href="./assets/editor/index.html" target="_blank" onclick="return confirmOpen(event)">Editor</a>
+                    </p>
                 </li>
                 <li>
                     <p>Or you can download a redbean file containing the editor</p>
@@ -189,11 +198,11 @@
         <section id="publications" class="publications">
             <h2>Publications</h2>
             <ul>
-                <li><a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca's Thesis</a></li>
-                <li><a href="https://critlab.eu/en/Publications/Theses/2024/icp-app" target="_blank">Salvatore's Thesis</a></li>
-                <li><a href="https://slides.com/lorenzo_angeli/p2210-icp-openu" target="_blank">Prototype presentation at OpenU closing Conference, Paris, 2022</a></li>
-                <li><a href="https://critlab.eu/en/Publications/Papers/2024/icp-demo" target="_blank">Demo of ICPs at SIGCSE 2024</a></li>
-                <li><a href="https://critlab.eu/en/Publications/Papers/2025/icp-field-test-sigcse" target="_blank">Field test of ICPs</a></li>
+                <li><a href="https://slides.com/lorenzo_angeli/p2210-icp-openu" target="_blank">Prototype presentation at OpenU closing Conference, Paris, 2022</a> - October 2022</li>
+                <li><a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca's Thesis</a> - July 2023</li>
+                <li><a href="https://critlab.eu/en/Publications/Papers/2024/icp-demo" target="_blank">Demo of ICPs at SIGCSE 2024</a> - March 2024</li>
+                <li><a href="https://critlab.eu/en/Publications/Theses/2024/icp-app" target="_blank">Salvatore's Thesis</a> - September 2024</li>
+                <li><a href="https://critlab.eu/en/Publications/Papers/2025/icp-field-test-sigcse" target="_blank">Field test of ICPs</a> - February 2025</li>
             </ul>
         </section>
         <section id="contributors" class="contributors">
