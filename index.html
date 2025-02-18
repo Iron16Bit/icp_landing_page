@@ -38,7 +38,7 @@
         .container {
             padding: 2rem;
         }
-        .features, .architecture, .source-code, .publications, .contributors {
+        .what, .architecture, .source-code, .publications, .contributors {
             margin-bottom: 2rem;
         }
         h2 {
@@ -113,10 +113,10 @@
     </header>
     <nav>
         <a href="#demo">Demo</a>
-        <a href="#features">Features</a>
+        <a href="#editor">Editor</a>
+        <a href="#what">What is ICPs?</a>
         <a href="#why">Why ICPs?</a>
         <a href="#architecture">Architecture</a>
-        <a href="#editor">Editor</a>
         <a href="#source-code">Source Code</a>
         <a href="#publications">Publications</a>
         <a href="#contributors">Contributors</a>
@@ -141,8 +141,24 @@
                 </li>
             </ul>
         </section>
-        <section id="features" class="features">
-            <h2>Features</h2>
+        <section id="editor" class="editor">
+            <h2>Editor</h2>
+            <p>ICPs slide decks can be easily created using the dedicated editor.</p>
+            <ul>
+                <li>
+                    <p>
+                        You can access the editor on the internet at its dedicated page:
+                        <a href="./assets/editor/index.html" target="_blank" onclick="return confirmOpen(event)">Editor</a>
+                    </p>
+                </li>
+                <li>
+                    <p>Or you can download a redbean file containing the editor</p>
+                    <a style="margin-left: 2vw;" href="./assets/editor.com" class="download-btn" onclick="return confirmDownload('editor')">Download</a>
+                </li>
+            </ul>
+        </section>
+        <section id="what" class="what">
+            <h2>What is ICPs?</h2>
             <p>The Interactive Code Playgrounds (ICPs) are an alternative, standardized and accessible slideshow system that offers code editors (like <a href="https://replit.com/"> repl.it</a>) inside HTML slides. The key features of ICPs are:</p>
             <ol>
                 <li>In-browser, standardized and platform independent environment requiring no additional downloads, accessible on any device with an internet browser;</li>
@@ -155,6 +171,7 @@
         </section>
         <section id="why" class="why">
             <h2>Why ICPs?</h2>
+            <p>Continuous digitalization has been leading to an increased systemic fragility, that can be seen in both: <b>1.</b> technical issues, like the incompatibility between the numerous devices and programming languages available; <b>2.</b> social issues, such the assumption that everyone has access to a performant device and a high-speed internet connection. The Interactive Code Playgrounds aim to overturn these conceptions by also providing a meaningful educational tool.</p>
             <p>Lecturing remains a common teaching method in university programming courses. In programming lectures, teachers often use slideshows that include code snippets. Students, in turn, need to transfer the code to a development environment before executing it. The different students in a classroom, however, may have different development environments, creating issues in managing the class and assisting students in troubleshooting.</p>
             <p>The ICPs are a technology that tries to solve some of these challenges while minimising the disruption to the traditional programming lecture’s structure. The goal is to try to mitigate two key issues encountered in beginner programming lectures at university level by:</p>
             <ol>
@@ -168,22 +185,6 @@
             <p>The figure above gives an idea of the architecture of ICPs. The Slides Layer contains <a href="https://revealjs.com/" target="_blank">Reveal.js</a> (the presentation framework) and <a href="https://codemirror.net/" target="_blank">CodeMirror</a> (the code editors). In this layer the user can view the slides and write code. Once the code is executed, it is taken as a string and passed to the next layer. Here there are all the various compilers and interpreters which are needed to convert the string of code into WebAssembly (WASM), which can then be directly executed by the browser.</p>
             <p>Since one of the main objectives of ICPs is to be as inclusive as possible and work on as many devices as possible, the user (or who distributes the slides to the final users) can choose what compilers/interpreters to put into the second layer thanks to its modular structure, allowing to reduce both the data storage used by the slides and the data traffic needed to reproduce the slides (if they are used online).</p>
             <p>Learn more in <a href="https://critlab.eu/Publications/Theses/2023/icp-mvp" target="_blank">Luca De Menego's thesis</a> or these <a href="https://critlab.eu/notebooks/icp.html" target="_blank">in-depth notes</a>.</p>
-        </section>
-        <section id="editor" class="editor">
-            <h2>Editor</h2>
-            <p>ICPs slide decks can easily be created using the dedicated editor.</p>
-            <ul>
-                <li>
-                    <p>
-                        You can access the editor on the internet at its dedicated page:
-                        <a href="./assets/editor/index.html" target="_blank" onclick="return confirmOpen(event)">Editor</a>
-                    </p>
-                </li>
-                <li>
-                    <p>Or you can download a redbean file containing the editor</p>
-                    <a style="margin-left: 2vw;" href="./assets/editor.com" class="download-btn" onclick="return confirmDownload('editor')">Download</a>
-                </li>
-            </ul>
         </section>
         <section id="source-code" class="source-code">
             <h2>Source Code</h2>
